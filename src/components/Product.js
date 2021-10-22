@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 //styles
-import { StyledProduct, StyledInfo } from './styled/Product.styled';
+import { StyledProduct } from './styled/Product.styled';
 
 function Product({ products }) {
     const { productId } = useParams()
@@ -21,7 +21,7 @@ function Product({ products }) {
     useEffect(() => {
         setProduct(products.find(product => product.id === Number(productId)))
         setTotal(quantity * price)
-    }, [quantity, productId])
+    }, [quantity, productId, price, products])
 
     return (
         <StyledProduct>

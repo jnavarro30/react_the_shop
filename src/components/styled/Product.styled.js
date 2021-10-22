@@ -81,7 +81,7 @@ export const StyledProduct = styled.div`
             font-weight: bold;
             margin: 0.5rem;
             padding: 0.5rem;
-            background: rgba(255, 255, 0, 0.5);
+            background: ${({ theme }) => theme.colors.productBtn};
             border: none;
 
             &:hover {
