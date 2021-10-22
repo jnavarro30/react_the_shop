@@ -7,26 +7,26 @@ export const StyledNav = styled.div`
 
   a {
     text-decoration: none;
-    color: white;
+    color: ${({ theme}) => theme.colors.navText};
   }
 `
 
 export const StyledNavBar = styled.div`
-  background: rgb(5, 112, 14, 0.5);
-  color: white;
+  background: ${({ theme }) => theme.colors.navBg};
+  color: ${({ theme}) => theme.colors.navText};
   display: grid;
   grid-auto-flow: column;
   justify-items: center;
   align-items: center;
 
   i {
-      font-size: 1.6rem;
+      font-size: ${({ theme }) => theme.icons.iconFontSize};
       cursor: pointer;
   }
 `
 export const StyledSubNavBar = styled.div`
-  background: rgb(5, 112, 14, 0.8);
-  color: white;
+  background: ${({ theme}) => theme.colors.subNav};
+  color: ${({ theme}) => theme.colors.navText};
   display: grid;
   grid-auto-flow: column;
   justify-items: center;

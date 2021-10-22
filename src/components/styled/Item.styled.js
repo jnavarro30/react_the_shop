@@ -1,34 +1,38 @@
 import styled from 'styled-components';
 
 export const StyledItem = styled.div`
+    width: 60%;
     display: grid;
+    grid-template-rows: 3fr 1fr;
     justify-items: center;
-    width: 80%;
+    align-items: center;
+    text-align: center;
+    border: 4px solid ${({ theme }) => theme.colors.productBorder};
+    border-radius: 10px;
+    margin-top: 3rem;
     
+    a {
+        color: ${({ theme }) => theme.colors.productText};
+        text-decoration: none;
+    }
 
-    img {
-        width: 250px;
-        height: 280px;
-        border: 4px solid green;
+    figure {
+        width: 200px;
+        height: 260px;
+        border: 2px solid black;
         border-radius: 5px;
-        margin: 0.5rem;
-        margin-top: 2rem;
+        margin-top: 1rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 
-    div {
-        list-style-type: none;
-        display: grid;
-        justify-content: center;
-        color: green;
-        text-shadow: 0 0 10px green;
+    p {
+        font-size: 2rem;
         font-weight: bolder;
+        color: ${({ theme }) => theme.colors.productText};
     }
-
-    .description {
-        color: rgb(156, 95, 235);
-    }
-`
-
-export const StyledInfo = styled.div`
-    margin: 0.5rem;
 `

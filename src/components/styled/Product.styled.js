@@ -1,76 +1,92 @@
 import styled from 'styled-components';
 
 export const StyledProduct = styled.div`
-    display: grid;
-    justify-items: center;
-    border: 5px solid red;
     width: 70%;
     margin: 0 auto;
-    
-    img {
-        width: 100%;
-        height: 280px;
-        border: 4px solid green;
-        border-radius: 5px;
-        margin: 0.5rem;
-        margin-top: 2rem;
-    }
+    text-align: center;
+    border: 4px solid ${({ theme }) => theme.colors.productBorder};
+    border-radius: 10px;
+    margin-top: 3rem;
 
-    .product-btns {
-        border: 2px solid yellow;
+    .container {
         display: grid;
         justify-items: center;
-        grid-template-areas:
-        'dash plus'
-        'add add';
+        justify-content: center;
+        width: min-content;
+    }
 
-        .bi {
-            color: red;
+    .product-top {
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+
+        div {
+            font-weight: bolder;
+            color: ${({ theme }) => theme.colors.productText};
         }
+
+        div:nth-child(1) {
+            font-size: 1.8rem;
+            justify-self: start;
+        }
+
+        div:nth-child(2) {
+            font-size: 1.4rem;
+            justify-self: end;
+        }
+    }
+
+    figure {
+        width: 200px;
+        height: 260px;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin-top: 0.5rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    p {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .product-quantity {
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        font-weight: bold;
+
+        i {
+            color: black;
+            text-shadow: 0 0 10px black;
+        }
+
+        span {
+            padding: 1rem;
+        }
+    }
+
+    .product-bottom {
+        width: 100%;
+        font-weight: bold;
+        margin: 0.5rem;
 
         button {
-            box-shadow: 0 0 10px rgb(156, 95, 235);
+            font-weight: bold;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 0, 0.5);
+            border: none;
+
+            &:hover {
+                box-shadow: 0 0 10px green;
+            }
         }
-
-        .plus {
-            grid-area: plus;
-        }
-
-        .dash {
-            grid-area: dash;
-        }
-
-        .add {
-            grid-area: add;
-        }
-    }
-`
-
-export const StyledInfo = styled.div`
-    margin: 0.5rem;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-    justify-items: center;
-    border: 2px solid blue;
-    width: 100%;
-    color: green;
-    text-shadow: 0 0 10px green;
-    font-weight: bolder;
-
-    .info-top {
-        border: 2px solid yellow;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-    }
-
-    .info-bottom {
-        border: 2px solid yellow;
-        /* color: rgb(156, 95, 235); */
-        text-shadow: 0 0 10px green;
-        width: 100%;
-        text-align: center;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
     }
 `

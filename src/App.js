@@ -6,6 +6,8 @@ import Home from './components/Home';
 import Product from './components/Product';
 import Checkout from './components/Checkout';
 // styles
+import { ThemeProvider } from 'styled-components';
+import { theme } from './components/styled/Theme';
 import { StyledApp } from './components/styled/App.styled';
 
 
@@ -20,7 +22,7 @@ function App() {
     },
     {
       id: 1,
-      image: 'https://images.unsplash.com/photo-1535189487909-a262ad10c165?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80',
+      image: 'https://cdn.pixabay.com/photo/2016/03/29/01/06/cilantro-1287301_960_720.jpg',
       name: 'Cilantro',
       description: 'People use cilantro as a flavorsome addition to soups, salads, curries, and other dishes. In some parts of the world, people call it coriander.',
       price: 8
@@ -35,7 +37,8 @@ function App() {
   ])
 
   return (
-    <Router>
+    <ThemeProvider theme={theme}>
+      <Router>
       <StyledApp className="App">
         <Nav />
         <main>
@@ -53,6 +56,7 @@ function App() {
         </main>
       </StyledApp>
     </Router>
+    </ThemeProvider>
   );
 }
 
