@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // components
 import Nav from './components/Nav';
@@ -9,9 +9,12 @@ import Checkout from './components/Checkout';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './components/styled/Theme';
 import { StyledApp } from './components/styled/App.styled';
-
+// context
+export const SetShowNavContext = React.createContext()
 
 function App() {
+  const [showNav, setShowNav] = useState(false)
+  const [shoppingCart, setShoppingCart] = useState([])
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -44,14 +47,28 @@ function App() {
     <ThemeProvider theme={theme}>
       <Router>
       <StyledApp className="App">
-        <Nav />
+        <Nav 
+          showNav={showNav}
+          setShowNav={setShowNav}
+          shoppingCart={shoppingCart}
+        />
         <main>
           <Switch>
             <Route exact path='/'>
-              <Home products={products} />
+              <SetShowNavContext.Provider value={setShowNav}>
+                <Home 
+                  products={products}
+                  setShowNav={setShowNav}
+                />
+              </SetShowNavContext.Provider>
             </Route>
             <Route path='/:productId'>
-              <Product products={products} />
+              <Product 
+                products={products}
+                shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart} 
+                setShowNav={setShowNav}
+              />
             </Route>
             <Route path='/checkout'>
               <Checkout />

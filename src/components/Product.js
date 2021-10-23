@@ -1,21 +1,40 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 //styles
 import { StyledProduct } from './styled/Product.styled';
 
-function Product({ products }) {
+function Product({ products, setShowNav, shoppingCart, setShoppingCart }) {
     const { productId } = useParams()
+    const history = useHistory()
     const [product, setProduct] = useState(products.find(product => product.id === Number(productId)))
     const [quantity, setQuantity] = useState(1)
     const { name, price, description, image } = product
     const [total, setTotal] = useState(price)
 
-    const handleAddSubtract = (sign) => {
-        if (sign === '+') setQuantity(quantity + 1)
+    const handleAddSubtract = (operator) => {
+        if (operator === '+') setQuantity(quantity + 1)
         else {
             if (!quantity) return
             setQuantity(quantity - 1)
         }
+    }
+
+    const handleAddToCart = () => {
+        setShoppingCart([
+            ...shoppingCart,
+            {
+                name,
+                quantity,
+                total
+            }
+        ])
+        console.log('working')
+        console.log(shoppingCart)
+    }
+
+    const handleGoBack = () => {
+        setShowNav(false)
+        history.push('/')
     }
 
     useEffect(() => {
@@ -44,7 +63,8 @@ function Product({ products }) {
                 </div>
                 <div className='product-bottom'>
                     <div>Total: ${total}</div>
-                    <button>Add to cart</button>
+                    <button onClick={handleAddToCart}>Add to cart</button>
+                    <button onClick={handleGoBack}>Go Back</button>
                 </div>
             </div>
         </StyledProduct>

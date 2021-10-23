@@ -76,10 +76,15 @@ export const StyledProduct = styled.div`
         width: 100%;
         font-weight: bold;
         margin: 0.5rem;
+        display: grid;
+        
+        div {
+            margin: 0.2rem;
+        }
 
         button {
             font-weight: bold;
-            margin: 0.5rem;
+            margin: 0.4rem;
             padding: 0.5rem;
             background: ${({ theme }) => theme.colors.productBtn};
             border: none;
