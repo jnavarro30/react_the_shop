@@ -1,16 +1,17 @@
 // components
+import React from "react"
 import Item from "./Item";
 // styles
 import { StyledHome } from './styled/Home.styled';
 
 function Home({ products }) {
-    const availableProducts = products.map((product, index) => {
-        return <Item product={product} key={index} />
-      })
-
     return (
         <StyledHome>
-            {availableProducts}
+            {
+                products.map((product, index) => {
+                    return <Item  products={products} product={product} key={index} />
+                  })
+            }
         </StyledHome>
     )
 }

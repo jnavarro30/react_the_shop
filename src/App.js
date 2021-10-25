@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { list } from './list';
 // components
 import Nav from './components/Nav';
 import Home from './components/Home';
@@ -9,58 +10,60 @@ import Checkout from './components/Checkout';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './components/styled/Theme';
 import { StyledApp } from './components/styled/App.styled';
-// context
-export const SetShowNavContext = React.createContext()
 
 function App() {
   const [showNav, setShowNav] = useState(false)
   const [shoppingCart, setShoppingCart] = useState([])
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState(list)
 
-  useEffect(() => {
-    setProducts([
-        {
-          id: 0,
-          image: 'https://images.unsplash.com/photo-1500420254515-0faefa2dac99?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80',
-          name: 'Basil',
-          description: 'Basil is an herb in the mint family. It adds flavor to meals, and its nutrients may provide health benefits.',
-          price: 10
-        },
-        {
-          id: 1,
-          image: 'https://cdn.pixabay.com/photo/2016/03/29/01/06/cilantro-1287301_960_720.jpg',
-          name: 'Cilantro',
-          description: 'People use cilantro as a flavorsome addition to soups, salads, curries, and other dishes. In some parts of the world, people call it coriander.',
-          price: 8
-        },
-        {
-          id: 2,
-          image: `https://images.unsplash.com/photo-1602769515559-e15133a7e992?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1009&q=80`,
-          name: 'Green Onions',
-          description: '',
-          price: 12
-        }
-      ])
-  }, [])
+  const sortProducts = sortBy => {
+    switch(sortBy) {
+      case 'alphabetically':
+        setProducts([...list].sort((a, b) => a.name - b.name))
+        break
+      case 'price-ascending':
+        setProducts([...list].sort((a, b) => a.price - b.price))
+        break
+      case 'price-descending':
+        setProducts([...list].sort((a, b) => b.price - a.price))
+        break
+      default: setProducts(list)
+    }
+  }
+
+  const handleClick = e => {
+    const classes = e.target.classList
+    if (showNav) {
+      if (!classes.contains('item') && !classes.contains('subNavBar')) {
+        setShowNav(false)
+      }
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
-      <StyledApp className="App">
+      <StyledApp className="App" onClick={handleClick}>
         <Nav 
           showNav={showNav}
           setShowNav={setShowNav}
           shoppingCart={shoppingCart}
         />
         <main>
+          <div className="filters">
+            
+            <select onChange={e => sortProducts(e.target.value)}>
+              <option value=''>--sort items--</option>
+              <option value='alphabetically'>alphabetically</option>
+              <option value='price-ascending'>price-ascending</option>
+              <option value='price-descending'>price-descending</option>
+            </select>
+          </div>
           <Switch>
             <Route exact path='/'>
-              <SetShowNavContext.Provider value={setShowNav}>
-                <Home 
-                  products={products}
-                  setShowNav={setShowNav}
-                />
-              </SetShowNavContext.Provider>
+              <Home 
+                products={products}
+                setShowNav={setShowNav}
+              />
             </Route>
             <Route path='/:productId'>
               <Product 
@@ -76,7 +79,6 @@ function App() {
           </Switch>
         </main>
       </StyledApp>
-    </Router>
     </ThemeProvider>
   );
 }

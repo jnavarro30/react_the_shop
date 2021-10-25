@@ -17,10 +17,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                 if (item.quantity) acc += item.quantity
                 return acc
             }, 0)
-            console.log(shoppingCart, 'shoppingcart')
-            console.log(total)
-    
-           if (total) setTotalCartItems(total)
+            if (total) setTotalCartItems(total)
         }
         ItemsInCart()
     }, [shoppingCart])
@@ -38,7 +35,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                     </i>
                 </div>
             </StyledNavBar>
-            <StyledSubNavBar style={{display: showNav ? 'grid' : 'none'}}>
+            <StyledSubNavBar className='subNavBar' style={{display: showNav ? 'grid' : 'none'}}>
                 <div className="item">Product a</div>
                 <div className="item">Product b</div>
                 <div className="item">Product c</div>
@@ -48,3 +45,5 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
 }
 
 export default Nav
+
+// click anywhere but nav to make nav close
