@@ -1,15 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 // styles
 import { StyledNav, StyledNavBar, StyledSubNavBar } from '../components/styled/Nav.styled'
 
 
 function Nav({ showNav, setShowNav, shoppingCart }) {
+    const history = useHistory()
     const [totalCartItems, setTotalCartItems] = useState(0)
-    const handleCart = () => {
-        // take to checkout page
-        console.log('welcome to checkout page')
-    }
 
     useEffect(() => {
         const ItemsInCart = () => {
@@ -30,7 +27,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                     <h1>The Shop</h1>
                 </Link>
                 <div className='shopping-cart'>
-                    <i className="bi bi-cart" onClick={handleCart}>
+                    <i className="bi bi-cart" onClick={() => history.push('/shopping-cart')}>
                         {totalCartItems ? totalCartItems : ''}
                     </i>
                 </div>

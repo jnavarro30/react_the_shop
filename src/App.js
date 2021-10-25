@@ -5,6 +5,7 @@ import { list } from './list';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import Product from './components/Product';
+import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/Checkout';
 // styles
 import { ThemeProvider } from 'styled-components';
@@ -65,13 +66,16 @@ function App() {
                 setShowNav={setShowNav}
               />
             </Route>
-            <Route path='/:productId'>
+            <Route path='/products/:productId'>
               <Product 
                 products={products}
                 shoppingCart={shoppingCart}
                 setShoppingCart={setShoppingCart} 
                 setShowNav={setShowNav}
               />
+            </Route>
+            <Route path='/shopping-cart'>
+              <ShoppingCart />
             </Route>
             <Route path='/checkout'>
               <Checkout />
