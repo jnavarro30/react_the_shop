@@ -7,7 +7,7 @@ function Item({ product }) {
     const { id, image, name } = product
 
     return (
-        <StyledItem className='Item' onClick={() => history.push(`/${id}`)}>
+        <StyledItem className='Item' onClick={() => history.push(`/products/${id}`)}>
             <figure>
                 <img src={image} alt={name} />
             </figure>

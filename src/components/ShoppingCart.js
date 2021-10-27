@@ -1,38 +1,31 @@
 import { useHistory } from 'react-router-dom';
-import { StyledProduct } from './styled/Product.styled';
+import { StyledShoppingCart } from './styled/ShoppingCart.styled';
 
 function ShoppingCart({ shoppingCart }) {
     const history = useHistory()
-    console.log(shoppingCart)
+    // make items appear when added
+    // design shoppin Cart page with items in a list
+    // figma design
+    console.log( 'length')
+    console.log(shoppingCart, 'cartItems')
 
     return (
-        <StyledProduct>
-            {/* <div className="container">
-                <div className="product-top">
-                    <div>{name}</div>
-                    <div>${price}</div>
-                </div>
-                <figure>
-                    <img src={image} alt={name} />
-                </figure>
-                <p>{description}</p>
-                <div className='product-quantity'>
-                    <div>Qty</div>
-                    <div>
-                        <i className="bi bi-dash-lg" onClick={() => handleAddSubtract('-')}></i>  
-                        <span>{quantity}</span>
-                        <i className="bi bi-plus-lg" onClick={() => handleAddSubtract('+')}></i>
-                    </div>
-                </div>
-                <div className='product-bottom'>
-                    <div>Total: ${total}</div>
-                    <button onClick={handleAddToCart}>Add to cart</button>
-                    <button onClick={() => history.push('/')}>Go Back</button>
-                </div>
-            </div> */}
-            Hi
-        </StyledProduct>
+        <StyledShoppingCart>
+            <ul>
+                {
+                    shoppingCart.map((item, index) => {
+                        return <li key={index}>{item.name}</li>
+                    })
+                }
+            </ul>
+            <div className='product-bottom'>
+                <div>Total: $100</div>
+                <button>Checkout</button>
+                <button onClick={() => history.push('/')}>Go Back</button>
+            </div>
+        </StyledShoppingCart>
     )
 }
 
 export default ShoppingCart
+

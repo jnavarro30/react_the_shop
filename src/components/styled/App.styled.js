@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { theme } from './Theme';
 
 export const StyledApp = styled.div`
     background: ${({ theme}) => theme.colors.appBg};

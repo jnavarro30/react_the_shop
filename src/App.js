@@ -63,7 +63,6 @@ function App() {
             <Route exact path='/'>
               <Home 
                 products={products}
-                setShowNav={setShowNav}
               />
             </Route>
             <Route path='/products/:productId'>
@@ -71,11 +70,12 @@ function App() {
                 products={products}
                 shoppingCart={shoppingCart}
                 setShoppingCart={setShoppingCart} 
-                setShowNav={setShowNav}
               />
             </Route>
             <Route path='/shopping-cart'>
-              <ShoppingCart />
+              <ShoppingCart 
+                shoppingCart={shoppingCart}
+              />
             </Route>
             <Route path='/checkout'>
               <Checkout />

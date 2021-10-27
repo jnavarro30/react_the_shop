@@ -20,6 +20,7 @@ function Product({ products, shoppingCart, setShoppingCart }) {
     }
 
     const handleAddToCart = () => {
+        console.log(name, quantity, total, 'new Item')
         setShoppingCart([
             ...shoppingCart,
             {
@@ -28,6 +29,7 @@ function Product({ products, shoppingCart, setShoppingCart }) {
                 total
             }
         ])
+        console.log(shoppingCart)
     }
 
     useEffect(() => {

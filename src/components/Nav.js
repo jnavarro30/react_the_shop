@@ -10,11 +10,11 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
 
     useEffect(() => {
         const ItemsInCart = () => {
-            let total = shoppingCart.reduce((acc, item) => {
+            let totalItems = shoppingCart.reduce((acc, item) => {
                 if (item.quantity) acc += item.quantity
                 return acc
             }, 0)
-            if (total) setTotalCartItems(total)
+            if (totalItems) setTotalCartItems(totalItems)
         }
         ItemsInCart()
     }, [shoppingCart])
@@ -42,5 +42,3 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
 }
 
 export default Nav
-
-// click anywhere but nav to make nav close
