@@ -8,28 +8,47 @@ function Product({ products, shoppingCart, setShoppingCart }) {
     const history = useHistory()
     const [product, setProduct] = useState(products.find(product => product.id === Number(productId)))
     const [quantity, setQuantity] = useState(1)
-    const { name, price, description, image } = product
+    const {id, name, price, description, image } = product
     const [total, setTotal] = useState(price)
 
     const handleAddSubtract = operator => {
-        if (operator === '+') setQuantity(quantity + 1)
+        if (operator === '+') setQuantity(prevQuantity => prevQuantity + 1)
         else {
             if (!quantity) return
-            setQuantity(quantity - 1)
+            setQuantity(prevQuantity => prevQuantity - 1)
         }
     }
 
     const handleAddToCart = () => {
-        console.log(name, quantity, total, 'new Item')
-        setShoppingCart([
-            ...shoppingCart,
-            {
-                name,
-                quantity,
-                total
+        let item = shoppingCart.find(elem => elem.id === Number(productId))
+  
+        if (item) {
+            if (item.quantity === quantity) {
+                console.log('already added')
+                return
             }
-        ])
-        console.log(shoppingCart)
+
+            let updateCart = shoppingCart.map(elem => {
+                if (elem.id === Number(productId)) {
+                    return {
+                        ...elem,
+                        quantity
+                    }
+                }
+                return elem
+            })
+            setShoppingCart([
+                ...updateCart
+            ])
+        } else {
+            setShoppingCart([
+                ...shoppingCart,
+                {
+                    ...product,
+                    quantity
+                }
+            ])
+        }
     }
 
     useEffect(() => {

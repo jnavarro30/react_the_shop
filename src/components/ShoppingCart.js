@@ -1,25 +1,34 @@
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { StyledShoppingCart } from './styled/ShoppingCart.styled';
+// components
+import ShoppingCartItem from './ShoppingCartItem';
 
 function ShoppingCart({ shoppingCart }) {
     const history = useHistory()
-    // make items appear when added
-    // design shoppin Cart page with items in a list
-    // figma design
-    console.log( 'length')
-    console.log(shoppingCart, 'cartItems')
+    const [total, setTotal] = useState(0)
 
+    useEffect(() => {
+        setTotal(
+            shoppingCart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+        )
+    }, [shoppingCart])
+   
     return (
         <StyledShoppingCart>
-            <ul>
+            <div className='cart-list'>
                 {
-                    shoppingCart.map((item, index) => {
-                        return <li key={index}>{item.name}</li>
-                    })
+                    shoppingCart.map((item, index) => (
+                        <ShoppingCartItem 
+                            key={index}
+                            item={item}
+                            shoppingCart={shoppingCart}
+                        />
+                    ))
                 }
-            </ul>
+            </div>
             <div className='product-bottom'>
-                <div>Total: $100</div>
+                <div>Total: ${total}</div>
                 <button>Checkout</button>
                 <button onClick={() => history.push('/')}>Go Back</button>
             </div>

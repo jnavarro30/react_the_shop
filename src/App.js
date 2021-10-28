@@ -51,7 +51,6 @@ function App() {
         />
         <main>
           <div className="filters">
-            
             <select onChange={e => sortProducts(e.target.value)}>
               <option value=''>--sort items--</option>
               <option value='alphabetically'>alphabetically</option>

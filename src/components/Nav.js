@@ -11,7 +11,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
     useEffect(() => {
         const ItemsInCart = () => {
             let totalItems = shoppingCart.reduce((acc, item) => {
-                if (item.quantity) acc += item.quantity
+                acc += item.quantity
                 return acc
             }, 0)
             if (totalItems) setTotalCartItems(totalItems)

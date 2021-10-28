@@ -1,17 +1,16 @@
 import styled from 'styled-components';
 
 export const StyledShoppingCart = styled.div`
-    height: 50vh;
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
-    text-align: center;
     border: 4px solid ${({ theme }) => theme.colors.productBorder};
     border-radius: 10px;
     margin-top: 3rem;
+    display: grid;
 
-    ul {
-        border: 2px solid red;
-        height: 100%;
+    .cart-list {
+        overflow-y: scroll;
+        display: grid;
     }
 
     .product-bottom {

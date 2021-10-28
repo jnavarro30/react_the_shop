@@ -10,7 +10,6 @@ export const StyledNav = styled.div`
     color: ${({ theme}) => theme.colors.navText};
   }
 `
-
 export const StyledNavBar = styled.div`
   background: ${({ theme }) => theme.colors.navBg};
   color: ${({ theme}) => theme.colors.navText};
@@ -18,6 +17,7 @@ export const StyledNavBar = styled.div`
   grid-auto-flow: column;
   justify-items: center;
   align-items: center;
+  padding: 0.4rem;
 
   i {
       font-size: ${({ theme }) => theme.icons.iconFontSize};
