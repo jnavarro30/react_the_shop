@@ -37,7 +37,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
             <div className='product-bottom'>
                 <div>Items: {totalItems}</div>
                 <div>Total: ${totalPrice}</div>
-                <button>Checkout</button>
+                <button onClick={() => history.push('/checkout')}>Checkout</button>
                 <button onClick={() => history.push('/')}>Go Back</button>
             </div>
         </StyledShoppingCart>

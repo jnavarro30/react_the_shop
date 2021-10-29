@@ -74,6 +74,7 @@ function Product({ products, shoppingCart, setShoppingCart }) {
                 <div className='product-bottom'>
                     <div>Total: ${total}</div>
                     <button onClick={handleAddToCart}>Add to cart</button>
+                    <button onClick={() => history.push('/shopping-cart')}>Go to cart</button>
                     <button onClick={() => history.push('/')}>Go Back</button>
                 </div>
             </div>

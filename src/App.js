@@ -17,21 +17,6 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([])
   const [products, setProducts] = useState(list)
 
-  const sortProducts = sortBy => {
-    switch(sortBy) {
-      case 'alphabetically':
-        setProducts([...list].sort((a, b) => a.name - b.name))
-        break
-      case 'price-ascending':
-        setProducts([...list].sort((a, b) => a.price - b.price))
-        break
-      case 'price-descending':
-        setProducts([...list].sort((a, b) => b.price - a.price))
-        break
-      default: setProducts(list)
-    }
-  }
-
   const handleClick = e => {
     const classes = e.target.classList
     if (showNav) {
@@ -50,25 +35,18 @@ function App() {
           shoppingCart={shoppingCart}
         />
         <main>
-          <div className="filters">
-            <select onChange={e => sortProducts(e.target.value)}>
-              <option value=''>--sort items--</option>
-              <option value='alphabetically'>alphabetically</option>
-              <option value='price-ascending'>price-ascending</option>
-              <option value='price-descending'>price-descending</option>
-            </select>
-          </div>
           <Switch>
             <Route exact path='/'>
               <Home 
                 products={products}
+                setProducts={setProducts}
               />
             </Route>
             <Route path='/products/:productId'>
               <Product 
                 products={products}
                 shoppingCart={shoppingCart}
-                setShoppingCart={setShoppingCart} 
+                setShoppingCart={setShoppingCart}
               />
             </Route>
             <Route path='/shopping-cart'>
@@ -78,7 +56,9 @@ function App() {
               />
             </Route>
             <Route path='/checkout'>
-              <Checkout />
+              <Checkout 
+                shoppingCart={shoppingCart}
+              />
             </Route>
           </Switch>
         </main>

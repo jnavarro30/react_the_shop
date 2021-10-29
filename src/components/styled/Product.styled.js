@@ -6,7 +6,7 @@ export const StyledProduct = styled.div`
     text-align: center;
     border: 4px solid ${({ theme }) => theme.colors.productBorder};
     border-radius: 10px;
-    margin-top: 3rem;
+    margin-top: 2rem;
 
     .container {
         display: grid;
@@ -39,7 +39,7 @@ export const StyledProduct = styled.div`
 
     figure {
         width: 200px;
-        height: 260px;
+        height: 250px;
         border: 2px solid black;
         border-radius: 5px;
         margin-top: 0.5rem;
@@ -75,7 +75,7 @@ export const StyledProduct = styled.div`
     .product-bottom {
         width: 100%;
         font-weight: bold;
-        margin: 0.5rem;
+        margin: 0.2rem;
         display: grid;
         
         div {
