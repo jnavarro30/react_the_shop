@@ -74,6 +74,7 @@ function App() {
             <Route path='/shopping-cart'>
               <ShoppingCart 
                 shoppingCart={shoppingCart}
+                setShoppingCart={setShoppingCart}
               />
             </Route>
             <Route path='/checkout'>

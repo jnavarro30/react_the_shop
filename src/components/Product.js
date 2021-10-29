@@ -7,36 +7,32 @@ function Product({ products, shoppingCart, setShoppingCart }) {
     const { productId } = useParams()
     const history = useHistory()
     const [product, setProduct] = useState(products.find(product => product.id === Number(productId)))
-    const [quantity, setQuantity] = useState(1)
-    const {id, name, price, description, image } = product
+    const { id, name, price, description, image, quantity } = product
     const [total, setTotal] = useState(price)
+    const [productQuantity, setProductQuantity] = useState(quantity)
 
     const handleAddSubtract = operator => {
-        if (operator === '+') setQuantity(prevQuantity => prevQuantity + 1)
+        if (operator === '+') setProductQuantity(prevQuantity => prevQuantity + 1)
         else {
-            if (!quantity) return
-            setQuantity(prevQuantity => prevQuantity - 1)
+            if (productQuantity === 0) return
+            setProductQuantity(prevQuantity => prevQuantity - 1)
         }
     }
 
     const handleAddToCart = () => {
-        let item = shoppingCart.find(elem => elem.id === Number(productId))
+        let item = shoppingCart.find(elem => elem.id === id)
   
         if (item) {
-            if (item.quantity === quantity) {
-                console.log('already added')
-                return
-            }
-
             let updateCart = shoppingCart.map(elem => {
                 if (elem.id === Number(productId)) {
                     return {
                         ...elem,
-                        quantity
+                        quantity: elem.quantity + productQuantity
                     }
                 }
                 return elem
             })
+            
             setShoppingCart([
                 ...updateCart
             ])
@@ -45,7 +41,7 @@ function Product({ products, shoppingCart, setShoppingCart }) {
                 ...shoppingCart,
                 {
                     ...product,
-                    quantity
+                    quantity: productQuantity
                 }
             ])
         }
@@ -53,8 +49,8 @@ function Product({ products, shoppingCart, setShoppingCart }) {
 
     useEffect(() => {
         setProduct(products.find(product => product.id === Number(productId)))
-        setTotal(quantity * price)
-    }, [quantity, productId, price, products])
+        setTotal(productQuantity * price)
+    }, [productQuantity, productId, price, products])
 
     return (
         <StyledProduct>
@@ -71,7 +67,7 @@ function Product({ products, shoppingCart, setShoppingCart }) {
                     <div>Qty</div>
                     <div>
                         <i className="bi bi-dash-lg" onClick={() => handleAddSubtract('-')}></i>  
-                        <span>{quantity}</span>
+                        <span>{productQuantity}</span>
                         <i className="bi bi-plus-lg" onClick={() => handleAddSubtract('+')}></i>
                     </div>
                 </div>

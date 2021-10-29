@@ -14,7 +14,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                 acc += item.quantity
                 return acc
             }, 0)
-            if (totalItems) setTotalCartItems(totalItems)
+            setTotalCartItems(totalItems)
         }
         ItemsInCart()
     }, [shoppingCart])

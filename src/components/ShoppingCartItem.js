@@ -1,17 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // styles 
 import { StyledShoppingCartItem } from './styled/ShoppingCartItem.styled';
 
-function ShoppingCartItem({ item, shoppingCart }) {
-    const [itemQuantity, setItemQuantity] = useState(0)
-    const { image, name, quantity, price } = item
+function ShoppingCartItem({ item, shoppingCart, setShoppingCart }) {
+    const { image, name, quantity, price, id } = item
+    const [itemQuantity, setItemQuantity] = useState(quantity)
+
     const handleAddSubtract = operator => {
-        console.log('working')
-        if (operator === '+') setItemQuantity(quantity + 1)
-        else {
-            if (!itemQuantity) return
-            setItemQuantity(itemQuantity - 1)
+        if (operator === '+') setItemQuantity(prevQuantity => prevQuantity + 1)
+        else setItemQuantity(prevQuantity => prevQuantity - 1)
+    }
+
+    useEffect(() => {
+        const updateQuantity = () => {
+            let updateCart = shoppingCart.map(item => {
+                if (item.id === id) {
+                    return {
+                        ...item,
+                        quantity: itemQuantity
+                    }
+                }
+                return item
+            })
+            setShoppingCart([...updateCart])
         }
+        updateQuantity()
+    }, [itemQuantity])
+
+    const handleDelete = () => {
+        let updateCart = shoppingCart.filter(item => item.id !== id)
+        setShoppingCart([...updateCart])
     }
 
     return (
@@ -26,13 +44,16 @@ function ShoppingCartItem({ item, shoppingCart }) {
                 <div>Price ${price}</div>
                 <div>
                     <i className="bi bi-dash-lg" onClick={() => handleAddSubtract('-')}></i>  
-                    <span>{quantity}</span>
+                    <span>{itemQuantity}</span>
                     <i className="bi bi-plus-lg" onClick={() => handleAddSubtract('+')}></i>
                 </div>
-                <div>Subtotal ${quantity * price}</div>
+                <div>Subtotal ${itemQuantity * price}</div>
+                <button onClick={handleDelete}>delete</button>
             </div>
         </StyledShoppingCartItem>
     )
 }
 
 export default ShoppingCartItem
+
+// update quantity on shopping cart

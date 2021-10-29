@@ -4,13 +4,17 @@ import { StyledShoppingCart } from './styled/ShoppingCart.styled';
 // components
 import ShoppingCartItem from './ShoppingCartItem';
 
-function ShoppingCart({ shoppingCart }) {
+function ShoppingCart({ shoppingCart, setShoppingCart }) {
     const history = useHistory()
-    const [total, setTotal] = useState(0)
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [totalItems, setTotalItems] = useState(0)
 
     useEffect(() => {
-        setTotal(
+        setTotalPrice(
             shoppingCart.reduce((acc, item) => acc + (item.price * item.quantity), 0)
+        )
+        setTotalItems(
+            shoppingCart.reduce((acc, item) => acc + item.quantity, 0)
         )
     }, [shoppingCart])
    
@@ -23,12 +27,16 @@ function ShoppingCart({ shoppingCart }) {
                             key={index}
                             item={item}
                             shoppingCart={shoppingCart}
+                            setShoppingCart={setShoppingCart}
+                            total={totalPrice}
+                            setTotal={setTotalPrice}
                         />
                     ))
                 }
             </div>
             <div className='product-bottom'>
-                <div>Total: ${total}</div>
+                <div>Items: {totalItems}</div>
+                <div>Total: ${totalPrice}</div>
                 <button>Checkout</button>
                 <button onClick={() => history.push('/')}>Go Back</button>
             </div>
