@@ -23,9 +23,7 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
         <StyledNav>
             <StyledNavBar>
                 <i className="bi bi-list" onClick={() => setShowNav(!showNav)}></i>
-                <Link to='/'>
-                    <h1>The Shop</h1>
-                </Link>
+                <h1>The Shop</h1>
                 <div className='shopping-cart'>
                     <i className="bi bi-cart" onClick={() => history.push('/shopping-cart')}>
                         {totalCartItems ? totalCartItems : ''}
@@ -33,9 +31,13 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                 </div>
             </StyledNavBar>
             <StyledSubNavBar className='subNavBar' style={{display: showNav ? 'grid' : 'none'}}>
-                <div className="item">Product a</div>
-                <div className="item">Product b</div>
-                <div className="item">Product c</div>
+                <Link to='/'>
+                    <div className="item">Home</div>
+                </Link>
+                <Link to='/about'>
+                    <div className="item">About</div>
+                </Link>
+                <div className="item">Contact</div>
             </StyledSubNavBar>
         </StyledNav>
     )

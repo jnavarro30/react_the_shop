@@ -56,4 +56,3 @@ function ShoppingCartItem({ item, shoppingCart, setShoppingCart }) {
 
 export default ShoppingCartItem
 
-// update quantity on shopping cart

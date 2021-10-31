@@ -17,6 +17,11 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
             shoppingCart.reduce((acc, item) => acc + item.quantity, 0)
         )
     }, [shoppingCart])
+
+    const handleCheckout = () => {
+        if (shoppingCart.length <= 0) return
+        history.push('/checkout')
+    }
    
     return (
         <StyledShoppingCart>
@@ -37,7 +42,7 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
             <div className='product-bottom'>
                 <div>Items: {totalItems}</div>
                 <div>Total: ${totalPrice}</div>
-                <button onClick={() => history.push('/checkout')}>Checkout</button>
+                <button onClick={handleCheckout}>Checkout</button>
                 <button onClick={() => history.push('/')}>Go Back</button>
             </div>
         </StyledShoppingCart>

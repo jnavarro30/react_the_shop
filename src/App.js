@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Product from './components/Product';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/Checkout';
+import About from './components/About';
 // styles
 import { ThemeProvider } from 'styled-components';
 import { theme } from './components/styled/Theme';
@@ -41,6 +42,9 @@ function App() {
                 products={products}
                 setProducts={setProducts}
               />
+            </Route>
+            <Route path='/about'>
+              <About />
             </Route>
             <Route path='/products/:productId'>
               <Product 
