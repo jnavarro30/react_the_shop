@@ -16,8 +16,8 @@ export const StyledShoppingCart = styled.div`
     .product-bottom {
         width: 100%;
         font-weight: bold;
-        margin: 0.5rem;
         display: grid;
+        border: 2px solid green;
         
         div {
             margin: 0.2rem;
@@ -25,9 +25,10 @@ export const StyledShoppingCart = styled.div`
 
         button {
             font-weight: bold;
-            margin: 0.4rem;
             padding: 0.5rem;
+            margin: 0.4rem auto;
             background: ${({ theme }) => theme.colors.productBtn};
+            width: 70%;
             border: none;
 
             &:hover {
