@@ -8,6 +8,7 @@ import Product from './components/Product';
 import ShoppingCart from './components/ShoppingCart';
 import Checkout from './components/Checkout';
 import About from './components/About';
+import Contact from './components/Contact';
 // styles
 import { ThemeProvider } from 'styled-components';
 import { theme } from './components/styled/Theme';
@@ -63,6 +64,9 @@ function App() {
               <Checkout 
                 shoppingCart={shoppingCart}
               />
+            </Route>
+            <Route path='/contact'>
+              <Contact />
             </Route>
           </Switch>
         </main>

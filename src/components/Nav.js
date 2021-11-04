@@ -37,7 +37,9 @@ function Nav({ showNav, setShowNav, shoppingCart }) {
                 <Link to='/about'>
                     <div className="item">About</div>
                 </Link>
-                <div className="item">Contact</div>
+                <Link to='/contact'>
+                    <div className="item">Contact</div>
+                </Link>
             </StyledSubNavBar>
         </StyledNav>
     )
