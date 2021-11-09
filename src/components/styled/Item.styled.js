@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledItem = styled.div`
-    width: 60%;
+    width: 70%;
     display: grid;
     grid-template-rows: 3fr 1fr;
     justify-items: center;
@@ -10,6 +10,7 @@ export const StyledItem = styled.div`
     border: 4px solid ${({ theme }) => theme.colors.productBorder};
     border-radius: 10px;
     margin-top: 3rem;
+    background-color: ${({ theme }) => theme.colors.productBg};
     
     a {
         color: ${({ theme }) => theme.colors.productText};
@@ -34,5 +35,9 @@ export const StyledItem = styled.div`
         font-size: 2rem;
         font-weight: bolder;
         color: ${({ theme }) => theme.colors.productText};
+    }
+
+    @media (min-width: 766px) {
+        width: 80%;
     }
 `

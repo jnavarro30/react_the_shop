@@ -7,6 +7,7 @@ export const StyledProduct = styled.div`
     border: 4px solid ${({ theme }) => theme.colors.productBorder};
     border-radius: 10px;
     margin-top: 2rem;
+    background-color: ${({ theme }) => theme.colors.productBg};
 
     .container {
         display: grid;

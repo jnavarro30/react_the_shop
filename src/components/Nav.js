@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 // styles
-import { StyledNav, StyledNavBar, StyledSubNavBar } from '../components/styled/Nav.styled'
+import { StyledNav, StyledNavBar, StyledSubNavBar } from './styled/Nav.styled'
 
 
 function Nav({ showNav, setShowNav, shoppingCart }) {

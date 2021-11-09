@@ -24,10 +24,10 @@ function Home({ products, setProducts }) {
         <>
             <div className="filters">
                 <select onChange={e => sortProducts(e.target.value)}>
-                <option value=''>--sort items--</option>
-                <option value='alphabetically'>alphabetically</option>
-                <option value='price-ascending'>price-ascending</option>
-                <option value='price-descending'>price-descending</option>
+                  <option value=''>--sort items--</option>
+                  <option value='alphabetically'>alphabetically</option>
+                  <option value='price-ascending'>price-ascending</option>
+                  <option value='price-descending'>price-descending</option>
                 </select>
             </div>
             <StyledHome>

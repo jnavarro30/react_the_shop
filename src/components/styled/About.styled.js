@@ -8,7 +8,7 @@ export const StyledAbout = styled.div`
     border: 4px solid ${({ theme }) => theme.colors.productBorder};
     border-radius: 10px;
     margin-top: 2rem;
-    background-color: rgba(210, 180, 140,0.3);
+    background-color: ${({ theme}) => theme.colors.productBg};
 
     h1 {
         padding-top: 1rem;
@@ -24,7 +24,6 @@ export const StyledAbout = styled.div`
             font-weight: bold;
             background: ${({ theme }) => theme.colors.productBtn};
             border: 3px solid ${({ theme }) => theme.colors.productBorder};
-          
             padding: 1rem;
             color: black;
             border-radius: 10px;

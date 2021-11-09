@@ -1,14 +1,15 @@
 export const theme = {
     colors: {
         appBg: '#fff',
-        navBg: '#3AB24D',
+        navBg: 'rgba(0, 153, 0, .8)',
         navText: '#fff',
-        subNav: '#1F5628',
+        subNav: 'rgba(31, 86, 40, 0.9)',
+        productBg: `rgba(210, 180, 140,0.2)`,
         productBorder: '#704C16',
         productText: `black`,
         productBtn: `rgba(255, 255, 0, 0.5)`
     }, 
     icons: {
-        iconFontSize: '1.6rem'
+        iconFontSize: '2rem'
     }
 }
