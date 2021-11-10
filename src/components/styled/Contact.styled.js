@@ -32,7 +32,7 @@ export const StyledContact = styled.div`
 
         span {
             font-size: 1.4rem;
-            font-weight: bolder;
+            font-weight: lighter;
         }
 
         #mssg {
@@ -43,6 +43,8 @@ export const StyledContact = styled.div`
             justify-self: center;
             border: 2px solid ${({ theme }) => theme.colors.productBorder};
             border-radius: 5px;
+            min-height: 150px;
+            width: 100%;
         }
 
     }
@@ -53,7 +55,7 @@ export const StyledContact = styled.div`
         padding: 1rem;
 
         i {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
         }
     }
 
@@ -69,6 +71,56 @@ export const StyledContact = styled.div`
 
         &:hover {
             box-shadow: 0 0 10px green;
+        }
+    }
+
+    // medium 
+    @media (min-width: ${({ theme }) => theme.responsive.medium}) {
+        h1 {
+            font-size: ${({ theme }) => theme.medium.headerFontSize};
+        }
+
+        label {
+            font-size: 1.8rem;
+
+            span {
+                font-size: 1.8rem;
+            }
+        }
+
+        .contact_icons {
+            i {
+                font-size: 2.4rem;
+            }
+        }
+
+        button {
+            font-size: ${({ theme }) => theme.medium.buttonFontSize};
+        }
+    }
+
+    // large
+    @media (min-width: ${({ theme }) => theme.responsive.large}) {
+        h1 {
+            font-size: ${({ theme }) => theme.large.headerFontSize};
+        }
+
+        label {
+            font-size: 2.4rem;
+
+            span {
+                font-size: 2.4rem;
+            }
+        }
+
+        .contact_icons {
+            i {
+                font-size: 3rem;
+            }
+        }
+
+        button {
+            font-size: ${({ theme }) => theme.large.buttonFontSize};
         }
     }
 `

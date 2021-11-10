@@ -24,6 +24,10 @@ export const StyledNavBar = styled.div`
   i {
       font-size: ${({ theme }) => theme.icons.iconFontSize};
       cursor: pointer;
+
+      &:hover {
+        color: yellow;
+      }
   }
 
   // medium
@@ -62,6 +66,10 @@ export const StyledSubNavBar = styled.div`
   .item {
       padding: 0.5rem;
       font-size: 1.4rem;
+
+      &:hover {
+        color: yellow;
+      }
   }
 
   // medium

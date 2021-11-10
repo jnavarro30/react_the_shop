@@ -49,9 +49,7 @@ function Contact() {
                     <i className="bi bi-telephone-fill"></i>
                     <i className="bi bi-envelope-fill"></i>
                 </div>
-                <label htmlFor='send'>
-                    <input id='send' value='send' type='submit' onClick={handleSubmit} /> 
-                </label>
+                <button type='submit'>Send</button>
                 <button onClick={() => history.push('/')}>Home</button>
             </form>
         </StyledContact>
