@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { theme } from './Theme';
 
 export const StyledItem = styled.div`
     width: 70%;
@@ -37,7 +38,13 @@ export const StyledItem = styled.div`
         color: ${({ theme }) => theme.colors.productText};
     }
 
-    @media (min-width: 766px) {
+    @media (min-width: ${({ theme }) => theme.responsive.medium}) {
         width: 80%;
+    }
+
+    @media (min-width: ${({ theme }) => theme.responsive.large}) {
+        figure {
+            height: 320px;
+        }
     }
 `

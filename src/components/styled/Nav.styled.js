@@ -26,13 +26,25 @@ export const StyledNavBar = styled.div`
       cursor: pointer;
   }
 
-  @media (min-width: 768px) {
+  // medium
+  @media (min-width: ${({ theme }) => theme.responsive.medium}) {
     h1 {
-      font-size: 2.6rem;
+      font-size: ${({ theme }) => theme.medium.navFontSize};
     }
 
     i {
-      font-size: 3rem;
+      font-size: ${({ theme }) => theme.medium.iFontSize};
+    }
+  }
+
+  // large
+  @media (min-width: ${({ theme }) => theme.responsive.large}) {
+    h1 {
+      font-size: ${({ theme }) => theme.large.navFontSize};
+    }
+
+    i {
+      font-size: ${({ theme }) => theme.large.iFontSize};
     }
   }
 `
@@ -52,11 +64,18 @@ export const StyledSubNavBar = styled.div`
       font-size: 1.4rem;
   }
 
-  // tablet
-  @media (min-width: 768px) {
+  // medium
+  @media (min-width: ${({ theme }) => theme.responsive.medium}) {
     .item {
-      padding: 1rem;
-      font-size: 1.8rem;
+      padding: ${({ theme }) => theme.medium.subNavPadding};
+      font-size: ${({ theme }) => theme.medium.subNavFontSize};
+    }
+  }
+
+  // large
+  @media (min-width: ${({ theme }) => theme.responsive.large}) {
+    .item {
+      font-size: ${({ theme }) => theme.large.subNavFontSize};
     }
   }
 `

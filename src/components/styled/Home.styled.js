@@ -15,7 +15,7 @@ export const StyledHome = styled.div`
     // large
     @media (min-width: 992px) {
         width: 90%;
-        margin: 0 auto;21   1
+        margin: 0 auto;
         margin-bottom: 2rem;
     }
 `

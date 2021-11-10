@@ -9,6 +9,7 @@ export const StyledAbout = styled.div`
     border-radius: 10px;
     margin-top: 2rem;
     background-color: ${({ theme}) => theme.colors.productBg};
+    max-width: 1024px;
 
     h1 {
         padding-top: 1rem;
@@ -30,6 +31,37 @@ export const StyledAbout = styled.div`
 
             &:hover {
                 box-shadow: 0 0 10px green;
+            }
+        }
+
+        // medium
+        @media (min-width: ${({ theme }) => theme.responsive.medium}) {
+            h1 {
+                font-size: ${({ theme }) => theme.medium.headerFontSize};
+            }
+            p {
+                padding: ${({ theme }) => theme.medium.pPadding};
+                font-size: ${({ theme }) => theme.medium.pFontSize};
+            }
+
+            button {
+                font-size: ${({ theme }) => theme.medium.buttonFontSize};
+            }
+        }
+
+        // large
+        @media (min-width: ${({ theme }) => theme.responsive.large}) {
+            h1 {
+                font-size: ${({ theme }) => theme.large.headerFontSize};
+            }
+            
+            p {
+                padding: ${({ theme }) => theme.large.pPadding};
+                font-size: ${({ theme }) => theme.large.pFontSize};
+            }
+
+            button {
+                font-size: ${({ theme }) => theme.large.buttonFontSize};
             }
         }
 `
