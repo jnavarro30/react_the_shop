@@ -40,11 +40,16 @@ export const StyledItem = styled.div`
 
     @media (min-width: ${({ theme }) => theme.responsive.medium}) {
         width: 80%;
+
+        figure {
+            width: 250px;
+        }
     }
 
     @media (min-width: ${({ theme }) => theme.responsive.large}) {
         figure {
             height: 320px;
+            width: 300px;
         }
     }
 `

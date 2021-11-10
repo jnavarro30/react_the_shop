@@ -114,6 +114,8 @@ export const StyledContact = styled.div`
         }
 
         .contact_icons {
+            margin: 1rem;
+
             i {
                 font-size: 3rem;
             }
@@ -121,6 +123,7 @@ export const StyledContact = styled.div`
 
         button {
             font-size: ${({ theme }) => theme.large.buttonFontSize};
+            margin: 1rem;
         }
     }
 `
