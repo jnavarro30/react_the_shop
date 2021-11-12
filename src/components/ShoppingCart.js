@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { StyledShoppingCart } from './styled/ShoppingCart.styled';
 // components
 import ShoppingCartItem from './ShoppingCartItem';
+// styles
+import { StyledButton } from './styled/Button.styled';
 
 function ShoppingCart({ shoppingCart, setShoppingCart }) {
     const history = useHistory()
@@ -42,8 +44,8 @@ function ShoppingCart({ shoppingCart, setShoppingCart }) {
             <div className='product-bottom'>
                 <div>Items: {totalItems}</div>
                 <div>Total: ${totalPrice}</div>
-                <button onClick={handleCheckout}>Checkout</button>
-                <button onClick={() => history.push('/')}>Go Back</button>
+                <StyledButton onClick={handleCheckout}>Checkout</StyledButton>
+                <StyledButton onClick={() => history.push('/')}>Go Back</StyledButton>
             </div>
         </StyledShoppingCart>
     )

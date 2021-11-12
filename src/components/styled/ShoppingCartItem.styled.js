@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledShoppingCartItem = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    border-bottom: 2px solid brown;
+    border-bottom: 1px dashed ${({ theme }) => theme.colors.productBorder};
 
     .item-left {
         padding: 0.5rem;
@@ -11,6 +11,7 @@ export const StyledShoppingCartItem = styled.div`
         figure {
             height: 120px;
             border: 2px solid yellow;
+            border-radius: 10px;
         }
 
         img {
@@ -31,5 +32,14 @@ export const StyledShoppingCartItem = styled.div`
             font-size: 1.2rem;
             text-shadow: 0px 0px 10px green;
         }
+    }
+
+    span {
+        margin: 0.4rem;
+    }
+
+    button {
+        padding: 0;
+        width: 80%;
     }
 `

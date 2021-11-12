@@ -9,9 +9,6 @@ export const theme = {
         productText: `black`,
         productBtn: `rgba(255, 255, 0, 0.5)`
     },
-    sizes: {
-        
-    }, 
     medium: {
         navFontSize: '2.6rem',
         navPadding: '1rem',

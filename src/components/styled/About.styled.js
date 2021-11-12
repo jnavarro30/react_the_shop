@@ -21,47 +21,27 @@ export const StyledAbout = styled.div`
       padding: 1rem;
     }
 
-    button {
-            font-weight: bold;
-            background: ${({ theme }) => theme.colors.productBtn};
-            border: 3px solid ${({ theme }) => theme.colors.productBorder};
-            padding: 1rem;
-            color: black;
-            border-radius: 10px;
-
-            &:hover {
-                box-shadow: 0 0 10px green;
-            }
+    
+    // medium
+    @media (min-width: ${({ theme }) => theme.responsive.medium}) {
+        h1 {
+            font-size: ${({ theme }) => theme.medium.headerFontSize};
         }
-
-        // medium
-        @media (min-width: ${({ theme }) => theme.responsive.medium}) {
-            h1 {
-                font-size: ${({ theme }) => theme.medium.headerFontSize};
-            }
-            p {
-                padding: ${({ theme }) => theme.medium.pPadding};
-                font-size: ${({ theme }) => theme.medium.pFontSize};
-            }
-
-            button {
-                font-size: ${({ theme }) => theme.medium.buttonFontSize};
-            }
+        p {
+            padding: ${({ theme }) => theme.medium.pPadding};
+            font-size: ${({ theme }) => theme.medium.pFontSize};
         }
+    }
 
-        // large
-        @media (min-width: ${({ theme }) => theme.responsive.large}) {
-            h1 {
-                font-size: ${({ theme }) => theme.large.headerFontSize};
-            }
-            
-            p {
-                padding: ${({ theme }) => theme.large.pPadding};
-                font-size: ${({ theme }) => theme.large.pFontSize};
-            }
-
-            button {
-                font-size: ${({ theme }) => theme.large.buttonFontSize};
-            }
+    // large
+    @media (min-width: ${({ theme }) => theme.responsive.large}) {
+        h1 {
+            font-size: ${({ theme }) => theme.large.headerFontSize};
         }
+        
+        p {
+            padding: ${({ theme }) => theme.large.pPadding};
+            font-size: ${({ theme }) => theme.large.pFontSize};
+        }
+    }
 `

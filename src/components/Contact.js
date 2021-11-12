@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // styles
 import { StyledContact } from './styled/Contact.styled';
+import { StyledButton } from './styled/Button.styled';
 
 function Contact() {
     const [userName, setUserName] = useState('')
@@ -49,8 +50,8 @@ function Contact() {
                     <i className="bi bi-telephone-fill"></i>
                     <i className="bi bi-envelope-fill"></i>
                 </div>
-                <button type='submit'>Send</button>
-                <button onClick={() => history.push('/')}>Home</button>
+                <StyledButton type='submit'>Send</StyledButton>
+                <StyledButton onClick={() => history.push('/')}>Home</StyledButton>
             </form>
         </StyledContact>
     )

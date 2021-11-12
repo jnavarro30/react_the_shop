@@ -1,6 +1,7 @@
 import { useHistory } from 'react-router-dom';
 // styles
 import { StyledAbout } from './styled/About.styled';
+import { StyledButton } from './styled/Button.styled';
 
 function About() {
     const history = useHistory()
@@ -11,7 +12,7 @@ function About() {
                 Organic foods no pesticides protect the environment. organic can get very expensive, grow your own organic gardening!
                 non-gmo. Get cuttings, rooted, mothers, designed vases. Right soil compost all natural ways green recycle. Tips.
             </p>
-            <button onClick={() => history.push('/')}>Home</button>
+            <StyledButton onClick={() => history.push('/')}>Home</StyledButton>
         </StyledAbout>
     )
 }

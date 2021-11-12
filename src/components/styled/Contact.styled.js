@@ -60,18 +60,8 @@ export const StyledContact = styled.div`
     }
 
     button {
-        font-weight: bold;
-        background: ${({ theme }) => theme.colors.productBtn};
-        border: 3px solid ${({ theme }) => theme.colors.productBorder};
-        padding: 0.5rem;
-        color: black;
-        border-radius: 10px;
         width: 40%;
         margin: 0.4rem;
-
-        &:hover {
-            box-shadow: 0 0 10px green;
-        }
     }
 
     // medium 
@@ -92,10 +82,6 @@ export const StyledContact = styled.div`
             i {
                 font-size: 2.4rem;
             }
-        }
-
-        button {
-            font-size: ${({ theme }) => theme.medium.buttonFontSize};
         }
     }
 
@@ -119,11 +105,6 @@ export const StyledContact = styled.div`
             i {
                 font-size: 3rem;
             }
-        }
-
-        button {
-            font-size: ${({ theme }) => theme.large.buttonFontSize};
-            margin: 1rem;
         }
     }
 `

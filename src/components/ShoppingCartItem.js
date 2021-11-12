@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 // styles 
 import { StyledShoppingCartItem } from './styled/ShoppingCartItem.styled';
+import { StyledButton } from './styled/Button.styled';
 
 function ShoppingCartItem({ item, shoppingCart, setShoppingCart }) {
     const { image, name, quantity, price, id } = item
@@ -48,7 +49,7 @@ function ShoppingCartItem({ item, shoppingCart, setShoppingCart }) {
                     <i className="bi bi-plus-lg" onClick={() => handleAddSubtract('+')}></i>
                 </div>
                 <div>Subtotal ${itemQuantity * price}</div>
-                <button onClick={handleDelete}>delete</button>
+                <StyledButton onClick={handleDelete}>delete</StyledButton>
             </div>
         </StyledShoppingCartItem>
     )
