@@ -42,4 +42,36 @@ export const StyledShoppingCartItem = styled.div`
         padding: 0;
         width: 80%;
     }
+
+    // medium
+    @media (min-width: ${({ theme }) => theme.responsive.medium}) {
+        font-size: 1.5rem;
+
+        figure {
+            width: 280px;
+            min-height: 100%;
+            border: 2px solid yellow;
+            border-radius: 10px;
+        }
+
+        button {
+        width: 50%;
+        }
+    }
+
+    // large
+    @media (min-width: ${({ theme }) => theme.responsive.large}) {
+        font-size: 2.2rem;
+
+        figure {
+            width: 320px;
+        }
+
+        .item-right {
+            i {
+                font-size: 2rem;
+                margin: 1rem;
+            }
+        }
+    }
 `
